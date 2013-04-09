@@ -12,4 +12,4 @@
 
 
 </div> {*Content_left end*}
-{include file="footer.tpl"}
+{include file="components/footer.tpl"}

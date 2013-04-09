@@ -51,7 +51,8 @@
 			});
 			
 			return results;
-		}
+		},
+		minLength: 3
 	});
 	
 	var getUsersOnline = function() {

@@ -166,10 +166,10 @@
 
 </div>
 <div class="span3">
-{include file="sidebar-a.tpl" showcloud="1"}
+{include file="components/sidebar.tpl" showcloud="1"}
 </div>
 <div class="span12">
-{include file="footer.tpl"}
+{include file="components/footer.tpl"}
 </div>
 </div>
 

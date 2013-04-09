@@ -340,5 +340,5 @@
 	</div> {*content-left-in END*}
 </div> {*content-left END*}
 
-{include file="sidebar-a.tpl"}
-{include file="footer.tpl"}
+{include file="components/sidebar.tpl"}
+{include file="components/footer.tpl"}

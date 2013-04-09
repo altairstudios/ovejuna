@@ -54,5 +54,5 @@
 
 
 
-{include file="sidebar-a.tpl"}
-{include file="footer.tpl"}
+{include file="components/sidebar.tpl"}
+{include file="components/footer.tpl"}

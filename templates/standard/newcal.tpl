@@ -56,4 +56,4 @@ change('manageajax.php?action=newcal','thecal');
 bla = new timetracker();
 </script>
 {/literal}
-{include file="footer.tpl"}
+{include file="components/footer.tpl"}

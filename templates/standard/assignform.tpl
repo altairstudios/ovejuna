@@ -9,4 +9,4 @@
 <input type="submit" action="submit" value="{#send#}" />
 </form>
 
-{include file="footer.tpl"}
+{include file="components/footer.tpl"}

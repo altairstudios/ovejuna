@@ -101,9 +101,9 @@
 
 </div>
 <div class="span3">
-{include file="sidebar-a.tpl"}
+{include file="components/sidebar.tpl"}
 </div>
 <div class="span12">
-{include file="footer.tpl"}
+{include file="components/footer.tpl"}
 </div>
 </div>
