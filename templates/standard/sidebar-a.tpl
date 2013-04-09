@@ -12,58 +12,32 @@
 
 {literal}
 <script type="text/javascript">
-	var typeaheadSources = [];
-
 	jQuery("#query").typeahead({
 		source: function() {
+			var results; 
+			
 			jQuery.ajax({
 				async: false,
 				data: {
 					query: jQuery("#query").val()
 				},
 				success: function(data) {
-					typeaheadSources = data;
+					results = data;
 				},
 				type: "GET",
-				url: "managesearch.php?action=autocomplete"
+				url: "managesearch.php?action=autocomplete",
+				dataType: "json"
 			});
-			console.log(typeaheadSources);
-			return typeaheadSources;
-		},
-		updater: function() {
-			console.log(arguments);
+			
+			return results;
 		}
 	});
-
-
-
-/* new Ajax.Autocompleter('query', 'choices', 'managesearch.php?action=ajaxsearch', {paramName:'query',minChars: 2,indicator: 'indicator1'});
-var on = new Ajax.PeriodicalUpdater("onlinelist","manageuser.php?action=onlinelist",{method:'get',evalScripts:true,frequency:35,decay:1.5});
-*/
-
 </script>
 {/literal}
 
 
 <div id="content-right">
 
-
-	
-
-
-	{*Calendar*}
-	{* theCal.dayNames = ["{#monday#}","{#tuesday#}","{#wednesday#}","{#thursday#}","{#friday#}","{#saturday#}","{#sunday#}"];
-	<div class="content-right-in">
-		<h2><a id="mycaltoggle" class="win-up" href="javascript:blindtoggle('mycal_mini');toggleClass('mycaltoggle','win-up','win-down');">{#calendar#}</a></h2>
-		<div id = "mycal_mini"></div>
-		<script type = "text/javascript">
-		theCal = new calendar({$theM},{$theY});
-		theCal.dayNames = ["{#monday#}","{#tuesday#}","{#wednesday#}","{#thursday#}","{#friday#}","{#saturday#}","{#sunday#}"];
-		theCal.monthNames = ["{#january#}","{#february#}","{#march#}","{#april#}","{#may#}","{#june#}","{#july#}","{#august#}","{#september#}","{#october#}","{#november#}","{#december#}"];
-		theCal.getCal('mycal_mini');
-		</script>
-	</div>
-	Calendar End*}
 
 
 	{*Tag Cloud*}
