@@ -1198,67 +1198,6 @@ td.message ul {
 	background-image: url(../images/back-side-neutral.png);
 }
 
-/* ## ONLINELISTE ######################################## */
-
-#onlinelist ul {
-	border-bottom: 1px solid #3c5570;
-	float: left;
-	position: relative;
-}
-
-#onlinelist li {
-	width: 184px;
-	clear: both;
-	border-top: 1px solid #3c5570;
-}
-
-#onlinelist li a div {
-	display: none;
-}
-
-#onlinelist li a div img {
-	margin: 5px 5px 5px 5px;
-	float: right;
-}
-
-#onlinelist a.user, #onlinelist a.chat, .chat-user {
-	display: block;
-	float: left;
-	width: 167px;
-	height: 23px;
-	line-height: 23px;
-	color: #6d7f93;
-	padding-left: 1px;
-}
-
-#onlinelist a.user:hover, .chat-user {
-	color: #9daab7;
-	/*background: url(../images/onlinelist-hover.png) repeat 0 0; */
-}
-
-#onlinelist a.chat, .chat-user {
-	width: 16px;
-	padding: 0;
-	background: url(../images/chat.png) no-repeat right -23px;
-}
-
-#onlinelist a.chat:hover {
-	background-position: right -46px;
-}
-
-.chat-user {
-	background-position: right 0;
-}
-
-#onlinelist li a:hover div {
-	display:block;
-	position: absolute;
-	top: 0;
-	left: -119px;
-	width: 100px;
-	z-index: 8;
-	background: url(../images/color-b.png) repeat 0 0;
-}
 
 /* ## HEADLINES ##################################### */
 

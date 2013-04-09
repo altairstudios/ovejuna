@@ -276,24 +276,15 @@ if ($action == "loginerror") {
 } elseif ($action == "onlinelist") {
     $onlinelist = $user->getOnlinelist();
     if (!empty($onlinelist)) {
-        echo "<ul>";
-        foreach($onlinelist as $online) {
-            if ($online["avatar"]) {
-                $userpic = "thumb.php?pic=files/" . CL_CONFIG . "/avatar/$online[avatar]&width=90";
-            } elseif ($online["gender"] == "f") {
-                $userpic = "thumb.php?pic=templates/standard/images/no-avatar-female.jpg&amp;width=90";
-            } else {
-                $userpic = "thumb.php?pic=templates/standard/images/no-avatar-male.jpg&amp;width=90";
-            }
-            echo "<li>" . "<a class=\"user\" href = \"manageuser.php?action=profile&id=$online[ID]\">$online[name]<div><img src = \"$userpic\" /></div> </a>";
-            if ($online['ID'] != $userid and $userpermissions["chat"]["add"]) {
-                echo " <a class=\"chat\" href = \"javascript:openChatwin('$online[name]',$online[ID]);\" title=\"chat\"></a>";
-            } elseif ($online['ID'] == $userid and $userpermissions["chat"]["add"]) {
-                echo " <a class=\"chat-user\" ></a>";
-            }
-            echo "</li>";
-        }
-        echo "</ul>";
+		foreach($onlinelist as $online) {
+			echo "<li>";
+			echo "<a href = \"manageuser.php?action=profile&id=$online[ID]\">";
+			if ($online['ID'] != $userid and $userpermissions["chat"]["add"]) {
+				echo '<i class="icon-book" onclick="javascript:openChatwin(\'$online[name]\',$online[ID]);"></i>';
+			}
+			echo "$online[name]</a>";
+			echo "</li>";
+		}
     }
 } elseif ($action == "vcard") {
     $theuser = $user->getProfile($id);

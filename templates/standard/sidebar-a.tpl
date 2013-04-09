@@ -8,6 +8,27 @@
 			<input type="hidden" name="action" value="search" />
 		</form>
 	</div>
+	{if $openProjects[0].ID > 0}
+		<div>
+			<h2 class="nav-header">{#myprojects#}</h2>
+			<div>
+				<form>
+					<select class="span12" onchange="document.location='manageproject.php?action=showproject&id='+this.value;">
+						<option>{#chooseone#}</option>
+						{section name=drop loop=$openProjects}
+							<option value="{$openProjects[drop].ID}">{$openProjects[drop].name|truncate:40:"...":true}</option>
+						{/section}
+					</select>
+				</form>
+			</div>
+		</div>
+	{/if}
+	<div>
+		<h2 class="nav-header">{#usersonline#}</h2>
+		<ul id="onlinelist" class="nav nav-list">
+			{$cloud}
+		</ul>
+	</div>
 </div>
 
 {literal}
@@ -32,61 +53,15 @@
 			return results;
 		}
 	});
+	
+	var getUsersOnline = function() {
+		jQuery.get("manageuser.php?action=onlinelist", function(data) {
+			jQuery("#onlinelist").html(data);
+		});
+	}
+	
+	setInterval(getUsersOnline, 30000);
+	
+	getUsersOnline();
 </script>
 {/literal}
-
-
-<div id="content-right">
-
-
-
-	{*Tag Cloud*}
-	{if $showcloud == "1"}
-		{if $cloud != ""}
-		<div class="content-right-in">
-			<h2><a id="tagcloudtoggle" class="win-up" href="javascript:blindtoggle('tagcloud');toggleClass('tagcloudtoggle','win-up','win-down');">{#tags#}</a></h2>
-			<div id = "tagcloud" class="cloud">
-				{$cloud}
-			</div>
-		</div>
-		{/if}
-	{/if}
-	{*Tag Cloud End*}
-
-	{*Quickfinder*}
-	{if $openProjects[0].ID > 0}
-		<div class="content-right-in">
-			<h2><a id="quickfindertoggle" class="win-up" href="javascript:blindtoggle('quickfinder');toggleClass('quickfindertoggle','win-up','win-down');">{#myprojects#}</a></h2>
-			<div id = "quickfinder">
-				<form>
-					<select style="background-color:#CCC;width:100%;" onchange="window.location='manageproject.php?action=showproject&id='+this.value;">
-						<option>{#chooseone#}</option>
-						{section name=drop loop=$openProjects}
-							<option value="{$openProjects[drop].ID}">{$openProjects[drop].name|truncate:40:"...":true}</option>
-						{/section}
-					</select>
-				</form>
-			</div>
-		</div>
-	{/if}
-
-	{*Onlinelist*}
-	<div class="content-right-in">
-			<h2><a id="onlinelisttoggle" class="win-up" href="javascript:blindtoggle('onlinelist');toggleClass('onlinelisttoggle','win-up','win-down');">{#usersonline#}</a></h2>
-
-			<div id="onlinelist">
-				{$cloud}
-			</div>
-	</div>
-
-
-		{literal}
-			  <script type = "text/javascript">
-			 /* new Ajax.Autocompleter('query', 'choices', 'managesearch.php?action=ajaxsearch', {paramName:'query',minChars: 2,indicator: 'indicator1'});
-				 var on = new Ajax.PeriodicalUpdater("onlinelist","manageuser.php?action=onlinelist",{method:'get',evalScripts:true,frequency:35,decay:1.5});
-*/
-
-			</script>
-		{/literal}
-
-</div>
