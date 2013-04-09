@@ -1,5 +1,10 @@
-{include file="header.tpl" jsload = "ajax" jsload1 = "tinymce" jsload3 = "lightbox" stage = "index"}
-{include file="tabsmenue-desk.tpl" desktab = "active"}
+{include file="components/header.tpl" jsload = "ajax" jsload1 = "tinymce" jsload3 = "lightbox" stage = "index"}
+<div class="container-fluid top-menu-container">
+	<div class="row-fluid">
+		<div class="span9">
+			{include file="components/tabs/tabsmenue-desk.tpl" desktab = "active"}
+
+
 
 <div id="content-left">
 	<div id="content-left-in">
@@ -475,5 +480,11 @@
 	</div> {*content-left-in END*}
 </div> {*content-left END*}
 
+</div>
+<div class="span3">
 {include file="sidebar-a.tpl"}
+</div>
+<div class="span12">
 {include file="footer.tpl"}
+</div>
+</div>

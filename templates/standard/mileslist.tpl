@@ -1,4 +1,4 @@
-{include file="header.tpl" jsload = "ajax" jsload3 = "lightbox" showheader="no"}
+{include file="components/header.tpl" jsload = "ajax" jsload3 = "lightbox" showheader="no"}
 				<div id = "milehead" style = "">
 				<div class="table_head">
 				<table cellpadding="0" cellspacing="0">

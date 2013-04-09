@@ -1,6 +1,8 @@
-{include file="header.tpl" jsload = "ajax" stage = "project" jsload1 = "tinymce"}
-
-{include file="tabsmenue-project.tpl" projecttab = "active"}
+{include file="components/header.tpl" jsload = "ajax" stage = "project" jsload1 = "tinymce"}
+<div class="container-fluid top-menu-container">
+	<div class="row-fluid">
+		<div class="span9">
+{include file="components/tabs/tabsmenue-project.tpl" projecttab = "active"}
 <div id="content-left">
 <div id="content-left-in">
 <div class="projects">
@@ -162,7 +164,14 @@
 </div> {*content-left-in END*}
 </div> {*content-left END*}
 
+</div>
+<div class="span3">
 {include file="sidebar-a.tpl" showcloud="1"}
+</div>
+<div class="span12">
+{include file="footer.tpl"}
+</div>
+</div>
 
 {literal}
 	<script type = "text/javascript">
@@ -175,5 +184,3 @@
 		});
 	</script>
 {/literal}
-
-{include file="footer.tpl"}

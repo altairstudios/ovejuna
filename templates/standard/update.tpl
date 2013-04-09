@@ -1,4 +1,4 @@
-		{include file="header.tpl" title="Update" showheader="no"}
+		{include file="components/header.tpl" title="Update" showheader="no"}
 
 		<div class="install" style="text-align:center; padding:5% 0;">
 			<div style="text-align:left;width:500px;margin:0 auto;padding:25px 25px 0px 25px;background:white;border:1px solid;">

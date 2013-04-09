@@ -1,4 +1,4 @@
-{include file="header.tpl" jsload = "ajax" jsload2="chat" focusme = "1" showheader="no"}
+{include file="components/header.tpl" jsload = "ajax" jsload2="chat" focusme = "1" showheader="no"}
 <input type = "hidden" id = "userto" value = "{$userto}" />
 <input type = "hidden" id = "userto_id" value = "{$userto_id}" />
 <input type = "hidden" id = "username" value = "{$username}" />

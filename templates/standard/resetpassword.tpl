@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Reset Password" showheader="no" jsload = "ajax"}
+{include file="components/header.tpl" title="Reset Password" showheader="no" jsload = "ajax"}
 
 <div class="login">
 	<div class="login-in">

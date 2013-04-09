@@ -12,7 +12,7 @@
 	<div id="footer-wrapper">
 		<div class="footer">
 			<div class="footer-in">
-				<a href="http://collabtive.o-dyn.de">Collabtive {$myversion}</a>
+				<a href="http://www.altairstudios.es">Ovejuna {$myversion}</a>
 			</div>
 		</div>
 	</div>

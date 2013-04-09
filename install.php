@@ -46,7 +46,6 @@ if (!$action) {
     if (!empty($settings)) {
         die("Collabtive seems to be already installed.<br />If this is an error, please clear your database.");
     }
-
     $db_host = $_POST['db_host'];
     $db_name = $_POST['db_name'];
     $db_user = $_POST['db_user'];
@@ -65,6 +64,7 @@ if (!$action) {
     }
     $installer_include = "yes";
     // connect database.
+
     require_once("install_mysql.php");
     // Get the servers default timezone
     $timezone = date_default_timezone_get();

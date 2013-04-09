@@ -17,6 +17,16 @@
 {if $jsload == "ajax"}
 {literal}
 
+
+<link rel="stylesheet" type="text/css" href="templates/base/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="templates/base/bootstrap/css/bootstrap-responsive.css"/>
+<link rel="stylesheet" type="text/css" href="templates/base/css/base.css"/>
+<script type="text/javascript" src="templates/base/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="templates/base/bootstrap/js/bootstrap.js"></script>
+
+
+
+
 <script type = "text/javascript">
 //endcolor for close element flashing
 closeEndcolor = '#377814';
@@ -52,6 +62,10 @@ window.onunload = quitchat;
 <script type="text/javascript" src="include/js/lytebox.php"></script>
 {/if}
 <link rel="stylesheet" type="text/css" href="templates/standard/css/style_main.css"/>
+
+
+
+
 
 
 {if $jsload1 == "tinymce"}
@@ -93,11 +107,15 @@ tinyMCE.init({
 </script>
 {/literal}
 {/if}
+
+
+
+
 </head>
 <body >
 
 <!--<div id = "jslog" style = "color:red;position:absolute;top:60%;right:5%;width:300px;border:1px solid;background-color:grey;"></div>-->
 
 {if $showheader != "no"}
-	{include file="header_main.tpl"}
+	{include file="components/header_main.tpl"}
 {/if}

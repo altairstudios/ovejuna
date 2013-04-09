@@ -1,27 +1,54 @@
+<div class="well">
+	<div>
+		<form method="get" action="managesearch.php">
+			<div class="input-append">
+				<input class="span12" id="query" name="query" type="text" autocomplete="off" />
+				<button class="btn" type="submit">{#gosearch#}</button>
+			</div>
+			<input type="hidden" name="action" value="search" />
+		</form>
+	</div>
+</div>
+
+{literal}
+<script type="text/javascript">
+	var typeaheadSources = [];
+
+	jQuery("#query").typeahead({
+		source: function() {
+			jQuery.ajax({
+				async: false,
+				data: {
+					query: jQuery("#query").val()
+				},
+				success: function(data) {
+					typeaheadSources = data;
+				},
+				type: "GET",
+				url: "managesearch.php?action=autocomplete"
+			});
+			console.log(typeaheadSources);
+			return typeaheadSources;
+		},
+		updater: function() {
+			console.log(arguments);
+		}
+	});
+
+
+
+/* new Ajax.Autocompleter('query', 'choices', 'managesearch.php?action=ajaxsearch', {paramName:'query',minChars: 2,indicator: 'indicator1'});
+var on = new Ajax.PeriodicalUpdater("onlinelist","manageuser.php?action=onlinelist",{method:'get',evalScripts:true,frequency:35,decay:1.5});
+*/
+
+</script>
+{/literal}
+
+
 <div id="content-right">
 
 
-	{*Search*}
-	<div class="content-right-in">
-			<h2><a id = "searchtoggle" class="win-up" href="javascript:blindtoggle('search');toggleClass('searchtoggle','win-up','win-down');">{#search#}</a></h2>
-
-			<form id = "search" method = "get" action = "managesearch.php" {literal} onsubmit="return validateStandard(this,'input_error');"{/literal}>
-			<fieldset>
-				<div class = "row">
-					<input type="text" class = "text" id="query" name="query" />
-				</div>
-
-				<div id="choices"></div>
-				<input type = "hidden" name = "action" value = "search" />
-
-				<div id="indicator1" style="display:none;"><img src="templates/standard/images/symbols/indicator_arrows.gif" alt="{#searching#}" /></div>
-
-				<button type="submit" title="{#gosearch#}"></button>
-			</fieldset>
-
-			</form>
-	</div>
-	{*Search End*}
+	
 
 
 	{*Calendar*}
@@ -81,9 +108,9 @@
 
 		{literal}
 			  <script type = "text/javascript">
-			  new Ajax.Autocompleter('query', 'choices', 'managesearch.php?action=ajaxsearch', {paramName:'query',minChars: 2,indicator: 'indicator1'});
+			 /* new Ajax.Autocompleter('query', 'choices', 'managesearch.php?action=ajaxsearch', {paramName:'query',minChars: 2,indicator: 'indicator1'});
 				 var on = new Ajax.PeriodicalUpdater("onlinelist","manageuser.php?action=onlinelist",{method:'get',evalScripts:true,frequency:35,decay:1.5});
-
+*/
 
 			</script>
 		{/literal}

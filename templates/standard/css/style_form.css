@@ -171,21 +171,6 @@ form.main input {
 	margin-right: 1px;
 }
 
-#search button {
-	width: 34px;
-	height: 23px;
-	background: url(../images/search-butn-side.png) no-repeat 0 0;
-	float: left;
-	margin: 0;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	border-radius: 0px;
-}
-
-#search button:hover {
-	background-position: 0 -23px;
-}
-
 #choices ul { /* Autocompleter */
 	width: 184px;
 	height: auto;
@@ -228,42 +213,6 @@ form.main input {
 	margin: 3px 9px 0 9px;
 }
 
-/* ## BUTTON ############################### */
-
-button, button.inner, button.inner-active {
-	border: none;
-	font-family: Arial, helvetica, sans-serif;
-	float: left;
-	height: 22px;
-	line-height: 22px;
-	color: #fff;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	font-size: 11px;
-	font-weight: bold;
-	margin: 0 5px 0 0;
-	padding-top: 0px;
-	padding-bottom: 1px;
-	/*padding: 2px 0 3px 0;*/
-	white-space: nowrap;
-	background: #384e67;
-}
-
-button:hover {
-	cursor: pointer;
-	background: #001e40;
-}
-
-button[disabled] {
-	opacity:.6;
-	filter:alpha(opacity=60);
-	-moz-opacity:.6;
-}
-
-button[disabled]:hover {
-	background: #384e67;
-}
 
 form.main select {
 	width: 315px;

@@ -1,6 +1,8 @@
-{include file="header.tpl" jsload = "ajax"}
-
-{include file="tabsmenue-project.tpl" userstab = "active"}
+{include file="components/header.tpl" jsload = "ajax"}
+<div class="container-fluid top-menu-container">
+	<div class="row-fluid">
+		<div class="span9">
+{include file="components/tabs/tabsmenue-project.tpl" userstab = "active"}
 <div id="content-left">
 <div id="content-left-in">
 <div class="user">

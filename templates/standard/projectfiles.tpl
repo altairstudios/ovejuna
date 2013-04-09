@@ -1,5 +1,8 @@
-{include file="header.tpl" jsload = "ajax" jsload3 = "lightbox" }
-{include file="tabsmenue-project.tpl" filestab = "active"}
+{include file="components/header.tpl" jsload = "ajax" jsload3 = "lightbox" }
+<div class="container-fluid top-menu-container">
+	<div class="row-fluid">
+		<div class="span9">
+{include file="components/tabs/tabsmenue-project.tpl" filestab = "active"}
 <script type = "text/javascript" src = "include/js/5up.js"></script>
 <div id="content-left">
 	<div id="content-left-in">
@@ -140,5 +143,13 @@ function changeFileview(viewtype, folder)
 changeFileview($('fileviewtype').value);
 </script>
 {/literal}
+
+
+</div>
+<div class="span3">
 {include file="sidebar-a.tpl"}
+</div>
+<div class="span12">
 {include file="footer.tpl"}
+</div>
+</div>

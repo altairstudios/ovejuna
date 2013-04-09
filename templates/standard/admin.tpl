@@ -1,4 +1,4 @@
-{include file="header.tpl" jsload = "ajax" }
+{include file="components/header.tpl" jsload = "ajax" }
 <h1>{#administration#}</h1>
 
 <div class ="content_left">

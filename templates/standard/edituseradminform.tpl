@@ -1,5 +1,8 @@
-{include file="header.tpl" jsload = "ajax"}
-{include file="tabsmenue-admin.tpl" usertab = "active"}
+{include file="components/header.tpl" jsload = "ajax"}
+<div class="container-fluid top-menu-container">
+	<div class="row-fluid">
+		<div class="span9">
+{include file="components/tabs/tabsmenue-admin.tpl" usertab = "active"}
 
 <div id="content-left">
 	<div id="content-left-in">
@@ -287,5 +290,11 @@
 	</div> {*content-left-in END*}
 </div> {*Content_left end*}
 
+</div>
+<div class="span3">
 {include file="sidebar-a.tpl"}
+</div>
+<div class="span12">
 {include file="footer.tpl"}
+</div>
+</div>

@@ -85,6 +85,52 @@ if ($action == "search")
     }
     echo "</ul>";
     // echo "<ul><li>$query</li></ul>";
+} elseif ($action == "autocomplete")
+{
+    $query = getArrayVal($_GET, "query");
+	$response = [];
+    $result = $such->dosearch($query);
+    if (!empty($result))
+    {
+        $finresult = $such->limitResult($result, $userid);
+    }
+    if (!empty($finresult))
+    {
+		
+        foreach($finresult as $res)
+        {
+            if (!empty($res))
+            {
+                if ($res["type"] == "file")
+                {
+                    if (strlen($res["name"]) > $strlim)
+                    {
+                        $res["name"] = substr($res["name"], 0, $strlim);
+                    }
+                    $response[] = $res["name"];
+                } elseif ($res["type"] != "task" and $res["type"] != "message")
+                {
+                    if (strlen($res["name"]) > $strlim)
+                    {
+                        $res["name"] = substr($res["name"], 0, $strlim);
+                    }
+                    // style = \"list-style-image: url(templates/standard/img/symbols/$res[icon]);\"
+                    $response[] = $res["name"];
+                }
+                else
+                {
+                    if (strlen($res["title"]) > $strlim)
+                    {
+                        $res["title"] = substr($res["title"], 0, $strlim);
+                    }
+                    // style = \"list-style-image: url(templates/standard/img/symbols/$res[icon]);\"
+                    $response[] = $res["title"];
+                }
+            }
+        }
+    }
+	echo json_encode($response);
+    // echo "<ul><li>$query</li></ul>";
 } elseif ($action == "ajaxsearch-p")
 {
     $query = getArrayVal($_POST, "query");

@@ -1,4 +1,4 @@
-{include file="header.tpl" jsload = "ajax" jsload3 = "lightbox" showheader="no"}
+{include file="components/header.tpl" jsload = "ajax" jsload3 = "lightbox" showheader="no"}
 				<table id="timeline1" class="timeline" cellpadding="0" cellspacing="1">
 
 				<tr class="head">

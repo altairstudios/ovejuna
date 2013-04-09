@@ -9,28 +9,6 @@
 
 /* ## Basic-XHTML-Elements ################################ */
 
-html, body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	font-family: Arial, helvetica, sans-serif;
-	font-size: 13px;
-}
-
-body {
-	color:#082343;
-	background:#2d6e98 url(../images/main-bg.jpg) repeat-x 0 0;
-	background-attachment: fixed;
-}
-
-body a, body a:visited {
-	text-decoration:none;
-	outline: none;
-}
-
-body a:hover {
-	text-decoration: none;
-}
 
 .hidden {
 	visibility:hidden;
