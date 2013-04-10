@@ -35,3 +35,12 @@
 .field-validation-error {
 	color: #a30e29;	
 }
+
+.table-projects .progress {
+	margin-bottom: 0;
+}
+
+.table-projects td:last-child {
+	width: 100px;
+	text-align: center;
+}

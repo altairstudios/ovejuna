@@ -5,10 +5,6 @@
 			{include file="components/tabs/tabsmenue-desk.tpl" desktab = "active"}
 
 
-
-<div id="content-left">
-	<div id="content-left-in">
-
 		{* Display System messages *}
 		<div class="infowin_left" style = "display:none;" id = "systemmsg">
 			{if $mode == "projectadded"}
@@ -32,224 +28,9 @@
 		
 		<h1>{#desktop#}</h1>
 
-		{*Projects*}
-		{if $projectnum > 0}
-			<div class="projects">
-				<div class="headline">
-					<a href="javascript:void(0);" id="projecthead_toggle" class="{$projectbar}" onclick = "toggleBlock('projecthead');"></a>
-						{if $userpermissions.projects.add}
-							<div class="wintools">
-								<a class="add" href="javascript:blindtoggle('form_addmyproject');" id="add_myprojects" onclick="toggleClass(this,'add-active','add');toggleClass('add_butn_myprojects','butn_link_active','butn_link');"><span>{#addproject#}</span></a>
-							</div>
-						{/if}
-					<h2>
-						<a href="myprojects.php" title="{#myprojects#}"><img src="./templates/standard/images/symbols/projects.png" alt="" />{#myprojects#}</a>
-					</h2>
-				</div>
-
-				<div class="block" id="projecthead" style = "{$projectstyle}">{*Add Project*}
-					<div id = "form_addmyproject" class="addmenue" style = "display:none;">
-						{include file="addproject.tpl" myprojects="1"}
-					</div>
-
-				<div class="nosmooth" id="sm_deskprojects">
-					<table id = "desktopprojects" cellpadding="0" cellspacing="0" border="0">
-						<thead>
-							<tr>
-								<th class="a"></th>
-								<th class="b" style="cursor:pointer;" onclick = "sortBlock('desktopprojects','');">{#project#}</th>
-								<th class="c" style="cursor:pointer" onclick = "sortBlock('desktopprojects','done');">{#done#}</th>
-								<th class="d" style="text-align:right" onclick = "sortBlock('desktopprojects','daysleft');">{#daysleft#}&nbsp;&nbsp;</th>
-								<th class="tools"></th>
-							</tr>
-						</thead>
-
-						<tfoot>
-							<tr>
-								<td colspan="5"></td>
-							</tr>
-						</tfoot>
-
-						{section name=project loop=$myprojects}
-							{*Color-Mix*}
-							{if $smarty.section.project.index % 2 == 0}
-							<tbody class="color-a" id="proj_{$myprojects[project].ID}" rel = "{$myprojects[project].ID},{$myprojects[project].name},{$myprojects[project].daysleft},0,0,{$myprojects[project].done}">
-							{else}
-							<tbody class="color-b" id="proj_{$myprojects[project].ID}" rel = "{$myprojects[project].ID},{$myprojects[project].name},{$myprojects[project].daysleft},0,0,{$myprojects[project].done}">
-							{/if}
-								<tr {if $myprojects[project].daysleft < 0 && $myprojects[project].daysleft != ""} class="marker-late"{elseif $myprojects[project].daysleft == "0"} class="marker-today"{/if}>
-									<td>
-										{if $userpermissions.projects.close}
-											<a class="butn_check" href="javascript:closeElement('proj_{$myprojects[project].ID}','manageproject.php?action=close&amp;id={$myprojects[project].ID}');" title="{#close#}"></a>
-										{/if}
-									</td>
-									<td>
-										<div class="toggle-in">
-											<span id = "desktopprojectstoggle{$myprojects[project].ID}" class="acc-toggle" onclick="javascript:accord_projects.activate($$('#projecthead .accordion_toggle')[{$smarty.section.project.index}]);toggleAccordeon('projecthead',this);"></span>
-											<a href="manageproject.php?action=showproject&amp;id={$myprojects[project].ID}" title="{$myprojects[project].name}">
-												{$myprojects[project].name|truncate:33:"...":true}
-											</a>
-										</div>
-									</td>
-									<td>
-										<div class="statusbar_b">
-											<div class="complete" id = "completed" style="width:{$myprojects[project].done}%;"></div>
-										</div>
-										<span>{$myprojects[project].done}%</span>
-									</td>
-									<td style="text-align:right">{$myprojects[project].daysleft}&nbsp;&nbsp;</td>
-									<td class="tools">
-										{if $userpermissions.projects.edit}
-											<a class="tool_edit" href="javascript:void(0);" onclick = "change('manageproject.php?action=editform&amp;id={$myprojects[project].ID}','form_addmyproject');toggleClass(this,'tool_edit_active','tool_edit');blindtoggle('form_addmyproject');" title="{#edit#}"></a>{/if}
-										{if $userpermissions.projects.del}
-											<a class="tool_del" href="javascript:confirmfunction('{#confirmdel#}','deleteElement(\'proj_{$myprojects[project].ID}\',\'manageproject.php?action=del&amp;id={$myprojects[project].ID}\')');"  title="{#delete#}"></a>
-										{/if}
-									</td>
-								</tr>
-
-								<tr class="acc">
-									<td colspan="5">
-										<div class="accordion_toggle"></div>
-										<div class="accordion_content">
-											<div class="acc-in">
-												<div class="message-in">
-													{$myprojects[project].desc}
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						{/section}
-					</table>
-
-					<div class="tablemenue">
-						<div class="tablemenue-in">
-							{if $userpermissions.projects.add}
-								<a class="butn_link" href="javascript:blindtoggle('form_addmyproject');" id="add_butn_myprojects" onclick="toggleClass('add_myprojects','add-active','add');toggleClass(this,'butn_link_active','butn_link');toggleClass('sm_deskprojects','smooth','nosmooth');">{#addproject#}</a>
-							{/if}
-						</div>
-					</div>
-				</div> {*block END*}
-			   </div> {*Smooth end*}
-			</div> {*projects END*}
-			<div class="content-spacer"></div>
-		{/if}{*Projects End*}
-
-		{*Tasks*}
-		{if $tasknum > 0}
-			<div class="tasks">
-				<div class="headline">
-					<a href="javascript:void(0);" id="taskhead_toggle" class="{$taskbar}" onclick = "toggleBlock('taskhead');"></a>
-
-					<div class="wintools">
-						<div class="export-main">
-							<a class="export"><span>{#export#}</span></a>
-							<div class="export-in"  style="width:69px;left: -69px;"> {*at two items*}
-
-								<a class="rss" href="managerss.php?action=rss-tasks&user={$userid}"><span>{#rssfeed#}</span></a>
-								<a class="ical" href="managetask.php?action=ical"><span>{#icalexport#}</span></a>
-								<a class="pdf" href="mytasks.php?action=pdf"><span>{#pdfexport#}</span></a>
-							</div>
-						</div>
-					</div>
-
-					<h2>
-						<a href="mytasks.php" title="{#mytasks#}"><img src="./templates/standard/images/symbols/tasklist.png" alt="" />{#mytasks#}</a>
-					</h2>
-				</div>
-
-				<div class="block" id="taskhead" style = "{$taskstyle}">
-					<div id = "form_addmytask" class="addmenue" style = "display:none;">
-						{include file="addmytask_index.tpl" }
-					</div>
-
-				<div class="nosmooth" id="sm_desktoptasks">
-					<table id = "desktoptasks" cellpadding="0" cellspacing="0" border="0">
-						<thead>
-							<tr>
-								<th class="a"></th>
-								<th class="b" style="cursor:pointer;" onclick = "sortBlock('desktoptasks','');">{#task#}</th>
-								<th class="c" style="cursor:pointer;" onclick = "sortBlock('desktoptasks','project');">{#project#}</th>
-								<th class="d" style="cursor:pointer;text-align:right" onclick = "sortBlock('desktoptasks','daysleft');">{#daysleft#}&nbsp;&nbsp;</th>
-								<th class="tools"></th>
-							</tr>
-						</thead>
-
-						<tfoot>
-							<tr>
-								<td colspan="5"></td>
-							</tr>
-						</tfoot>
-
-						{section name = task loop=$tasks}
-							{*Color-Mix*}
-							{if $smarty.section.task.index % 2 == 0}
-							<tbody class="color-a" id="task_{$tasks[task].ID}" rel = "{$tasks[task].ID},{$tasks[task].title},{$tasks[task].daysleft},{$tasks[task].pname}">
-							{else}
-							<tbody class="color-b" id="task_{$tasks[task].ID}" rel = "{$tasks[task].ID},{$tasks[task].title},{$tasks[task].daysleft},{$tasks[task].pname}">
-							{/if}
-								<tr {if $tasks[task].daysleft < 0} class="marker-late"{elseif $tasks[task].daysleft == 0} class="marker-today"{/if}>
-									<td>
-										{if $userpermissions.tasks.close}
-											<a class="butn_check" href="javascript:closeElement('task_{$tasks[task].ID}','managetask.php?action=close&amp;tid={$tasks[task].ID}&amp;id={$tasks[task].project}');" title="{#close#}"></a>
-										{/if}
-									</td>
-									<td>
-										<div class="toggle-in">
-											<span id = "desktoptaskstoggle{$tasks[task].ID}" class="acc-toggle" onclick="javascript:accord_tasks.activate($$('#taskhead .accordion_toggle')[{$smarty.section.task.index}]);toggleAccordeon('taskhead',this);"></span>
-											<a href="managetask.php?action=showtask&amp;id={$tasks[task].project}&amp;tid={$tasks[task].ID}" title="{$tasks[task].title}">
-											{if $tasks[task].title != ""}
-												{$tasks[task].title|truncate:33:"...":true}
-											{else}
-												{$tasks[task].text|truncate:33:"...":true}
-											{/if}
-											</a>
-										</div>
-									</td>
-									<td>
-										<a href = "managetask.php?action=showproject&amp;id={$tasks[task].project}">{$tasks[task].pname|truncate:30:"...":true}</a>
-									</td>
-									<td style="text-align:right">{$tasks[task].daysleft}&nbsp;&nbsp;</td>
-									<td class="tools">
-										{if $userpermissions.tasks.edit}
-											<a class="tool_edit" href="javascript:void(0);"  onclick = "change('managetask.php?action=editform&amp;tid={$tasks[task].ID}&amp;id={$tasks[task].project}','form_addmytask');toggleClass(this,'tool_edit_active','tool_edit');blindtoggle('form_addmytask');" title="{#edit#}"></a>
-
-										{/if}
-										{if $userpermissions.tasks.del}
-											<a class="tool_del" href="javascript:confirmfunction('{#confirmdel#}','deleteElement(\'task_{$tasks[task].ID}\',\'managetask.php?action=del&amp;tid={$tasks[task].ID}&amp;id={$tasks[task].project}\')');"  title="{#delete#}"></a>
-										{/if}
-									</td>
-								</tr>
-
-								<tr class="acc">
-									<td colspan="5">
-										<div class="accordion_toggle"></div>
-										<div class="accordion_content">
-											<div class="acc-in">
-												<div class="message-in">
-													{$tasks[task].text|nl2br}
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						{/section}
-					</table>
-
-					<div class="tablemenue">
-						<div class="tablemenue-in">
-							{if $userpermissions.tasks.add}
-								<a class="butn_link" href="javascript:void(0);" id="add_butn_mytasks" onclick="blindtoggle('form_addmytask');toggleClass(this,'butn_link_active','butn_link');toggleClass('sm_desktoptasks','smooth','nosmooth');">{#addtask#}</a>
-							{/if}
-						</div>
-					</div>
-				</div> {*block END*}
-			  </div> {* Smooth end *}
-			</div> {*tasks END*}
-			<div class="content-spacer"></div>
-		{/if}{*Tasks End*}
+		{include file="home/projects.tpl"}
+		{include file="home/task.tpl"}
+		
 
 		{*Milestones*}
 		{if $myprojects}
@@ -274,6 +55,7 @@
 			</div>	{*miles End*}
 			<div class="content-spacer"></div>{*Milestons END*}
 		{/if}
+
 
 		{*Messages*}
 		{if $msgnum > 0}
@@ -476,9 +258,6 @@
 			changeshow('manageajax.php?action=newcal','thecal','progress');
 			</script>
 		{/literal}
-
-	</div> {*content-left-in END*}
-</div> {*content-left END*}
 
 </div>
 <div class="span3">

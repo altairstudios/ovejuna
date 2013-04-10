@@ -41,27 +41,6 @@ img {
 	color: #fff;
 }
 
-ul {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-td.message ul {
-	padding: 0 0 0 5px;
-	margin: 0 0 0 10px;
-	list-style-type: disc;
-}
-
-.error_message {
-	color:red;
-}
-
-
-/* ## Basic-XHTML-Elements ############### END ############## */
-
-
-/* ## LOGIN-Elements ################################ */
 
 .login {
 	width: 460px;
