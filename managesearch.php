@@ -88,7 +88,7 @@ if ($action == "search")
 } elseif ($action == "autocomplete")
 {
     $query = getArrayVal($_GET, "query");
-	$response = [];
+	$response = array();
     $result = $such->dosearch($query);
     if (!empty($result))
     {
