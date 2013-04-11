@@ -29,7 +29,7 @@
 		<h1>{#desktop#}</h1>
 
 		{include file="home/projects.tpl"}
-		{include file="home/task.tpl"}
+		{include file="home/tasks.tpl"}
 		
 
 		{*Milestones*}
