@@ -1,5 +1,6 @@
 <?php
-require("./init.php");
+require('core/Kernel.php');
+//require("./init.php");
 
 if (!isset($_SESSION["userid"])) {
     $template->assign("loginerror", 0);
@@ -146,6 +147,5 @@ $template->assign("tasknum", $tasknum);
 
 $template->assign("messages", $messages);
 $template->assign("msgnum", $msgnum);
-$template->display("index.tpl");
 
-?>
+$template->display("pages/index.html");
