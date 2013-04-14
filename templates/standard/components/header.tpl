@@ -18,11 +18,11 @@
 {literal}
 
 
-<link rel="stylesheet" type="text/css" href="templates/base/bootstrap/css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="templates/base/bootstrap/css/bootstrap-responsive.css"/>
+<link rel="stylesheet" type="text/css" href="templates/base/packages/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="templates/base/packages/bootstrap/css/bootstrap-responsive.css"/>
 <link rel="stylesheet" type="text/css" href="templates/base/css/base.css"/>
 <script type="text/javascript" src="templates/base/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="templates/base/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="templates/base/packages/bootstrap/js/bootstrap.js"></script>
 
 
 
