@@ -44,3 +44,9 @@
 	width: 100px;
 	text-align: center;
 }
+
+label.inline-right {
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 10px;
+}
