@@ -1,14 +1,16 @@
 <?php
-require('core/Kernel.php');
-//require("./init.php");
 
 if (!isset($_SESSION["userid"])) {
+	require("./init.php");
     $template->assign("loginerror", 0);
     $mode = getArrayVal($_GET, "mode");
     $template->assign("mode", $mode);
     $template->display("login.tpl");
     die();
 }
+
+require('core/Kernel.php');
+
 // collabtive doesn't seem to be installed properly , redirect to installer
 if (empty($db_name) or empty($db_user)) {
     $loc = $url . "install.php";
