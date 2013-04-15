@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 if (!isset($_SESSION["userid"])) {
+	print_r($_SESSION); die;
 	require("./init.php");
     $template->assign("loginerror", 0);
     $mode = getArrayVal($_GET, "mode");
